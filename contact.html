@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 align="center">PERSONAL PORTFOLIO</h1>
+            <ul>
+                <li><a href="index.html" class="cta-button">HOME</a></li>
+                <li><a href="about.html" class="cta-button">ABOUT</a></li>
+                <li>
+                    <a href="services.html" class="cta-button">SERVICES</a>
+                </li>
+                <li>
+                    <a href="products.html" class="cta-button">PRODUCTS</a>
+                </li>
+                <li><a href="contact.html" class="cta-button">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <title>Contact Page</title>
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+            
+            .error {
+                color: red;
+            }
+        </style>
+        <script>
+            function validateForm() {
+                var name = document.forms["contactForm"]["name"].value;
+                var email = document.forms["contactForm"]["email"].value;
+                var subject = document.forms["contactForm"]["subject"].value;
+                var message = document.forms["contactForm"]["message"].value;
+
+                if (name === "") {
+                    document.getElementById("nameError").innerHTML = "Please enter your name.";
+                    return false;
+                }
+
+                if (email === "") {
+                    document.getElementById("emailError").innerHTML = "Please enter your email address.";
+                    return false;
+                }
+
+                if (subject === "") {
+                    document.getElementById("subjectError").innerHTML = "Please enter the subject.";
+                    return false;
+                }
+
+                if (message === "") {
+                    document.getElementById("messageError").innerHTML = "Please enter your message.";
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+
+        <body>
+            <h1>Contact Us</h1>
+
+            <h2>Inquiry Form</h2>
+            <form name="contactForm" action="/submit_form" method="post" onsubmit="return validateForm()">
+                <label for="name ">Name:</label>
+                <input type="text " id="name" name="name" required>
+                <span id=" nameError " class="error "></span><br><br>
+
+                <label for=" email ">Email:</label>
+                <input type="email " id="email " name="xyz@gmail.com " required>
+                <span id="emailError " class="error "></span><br><br>
+
+                <label for="subject ">Subject:</label>
+                <input type="text " id="subject " name="subject " required>
+                <span id="subjectError " class="error "></span><br><br>
+
+                <label for="message ">Message:</label><br>
+                <textarea id="message " name="message " rows="8" required></textarea>
+                <span id="messageError " class="error "></span><br><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+
+            <h2>Direct Contact Information</h2>
+            <p>Phone: +254 70800 6446</p>
+            <p>Email: marthajepkoechkipruto@gmail.com</p>
+            <p>Address: 1699-50 200, KIBABII UNIVERSITY, Bungoma, Kenya</p>
+
+
+            <h2>Bungoma</h2>
+            <div id="map "></div>
+            <footer>
+                <div class="social-icons ">
+                    <a href="# "><i class="fab fa-facebook "></i></a>
+                    <a href="# "><i class="fab fa-twitter "></i></a>
+                    <a href="# "><i class="fab fa-instagram "></i></a>
+                    <a href="# "><i class="fab fa-whatsapp "></i></a>
+                    <!-- Add more icons as needed -->
+                    <p>&copy; 2024 Martha Kipruto. All rights reserved.</p>
+                </div>
+
+            </footer>
+            <script>
+                // Replace the latitude and longitude values with your desired location
+                function initMap() {
+                    var location = {
+                        lat: 34.5,
+                        lng: 78.5,
+                    };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 12,
+                        center: location
+                    });
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap " async defer></script>
+
+            <script src="script.js "></script>
+        </body>
+
+</html>
